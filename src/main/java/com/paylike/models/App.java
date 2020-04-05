@@ -1,20 +1,21 @@
 package com.paylike.models;
+
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 21/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
-public class App {
-  public String id;
-  public String name;
-  public String key;
-  public String created;
 
-  @Override
-  public String toString() {
-    return "App{" +
-    "created=" + created +
-    ", key='" + key + '\'' +
-    ", name='" + name + '\'' +
-    ", id='" + id + '\'' +
-    '}';
-  }
+@Data
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class App {
+  String id;
+  String name;
+  String key;
+  String created;
 }

@@ -1,26 +1,22 @@
 package com.paylike.models.requests;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 17/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
+
+@Data
+@ToString
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class CaptureTransactionData {
-  public long   amount;
-  public String currency;
-  public String descriptor;
-
-
-  public CaptureTransactionData(long amount, String currency, String descriptor) {
-    this.amount = amount;
-    this.currency = currency;
-    this.descriptor = descriptor;
-  }
-
-  @Override
-  public String toString() {
-    return "CaptureTransactionData{" +
-    "amount=" + amount +
-    ", currency='" + currency + '\'' +
-    ", descriptor='" + descriptor + '\'' +
-    '}';
-  }
+  long   amount;
+  String currency;
+  String descriptor;
 }

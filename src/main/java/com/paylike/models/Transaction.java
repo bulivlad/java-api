@@ -1,64 +1,51 @@
 package com.paylike.models;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by jankjr on 22/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
+
+@Data
+@Builder
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Transaction {
-  public String id;
+  String id;
 
-  public boolean test;
+  boolean test;
   
-  public String merchantId;
+  String merchantId;
 
-  public String created;
+  String created;
 
-  public long amount;
+  long amount;
 
-  public long refundedAmount;
-  public long capturedAmount;
-  public long voidedAmount;
-  public long pendingAmount;
-  public long disputedAmount;
+  long refundedAmount;
+  long capturedAmount;
+  long voidedAmount;
+  long pendingAmount;
+  long disputedAmount;
 
-  public Card card;
+  Card card;
   boolean tds;
 
-  public String currency;
+  String currency;
 
-  public Map custom;
+  Map custom;
 
-  public boolean recurring;
-  public boolean successful;
-  public boolean error;
-  public String descriptor;
+  boolean recurring;
+  boolean successful;
+  boolean error;
+  String descriptor;
 
-  public List<TrailEntry> trail;
-
-  @Override
-  public String toString() {
-    return "Transaction{" +
-    "id='" + id + '\'' +
-    ", test=" + test +
-    ", merchantId='" + merchantId + '\'' +
-    ", created='" + created + '\'' +
-    ", amount=" + amount +
-    ", refundedAmount=" + refundedAmount +
-    ", capturedAmount=" + capturedAmount +
-    ", voidedAmount=" + voidedAmount +
-    ", pendingAmount=" + pendingAmount +
-    ", disputedAmount=" + disputedAmount +
-    ", card=" + card +
-    ", tds=" + tds +
-    ", currency='" + currency + '\'' +
-    ", custom=" + custom +
-    ", recurring=" + recurring +
-    ", successful=" + successful +
-    ", error=" + error +
-    ", descriptor='" + descriptor + '\'' +
-    ", trail=" + trail +
-    '}';
-  }
+  List<TrailEntry> trail;
 }

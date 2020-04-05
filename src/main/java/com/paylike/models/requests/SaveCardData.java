@@ -1,26 +1,19 @@
 package com.paylike.models.requests;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 22/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
+
+@Data
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class SaveCardData {
-  private String transactionId;
-  private String notes;
-
-  public SaveCardData(String transactionId, String notes) {
-    this.transactionId = transactionId;
-    this.notes = notes;
-  }
-
-  public SaveCardData(String transactionId) {
-    this.transactionId = transactionId;
-  }
-
-  @Override
-  public String toString() {
-    return "SaveCardData{" +
-    "transactionId='" + transactionId + '\'' +
-    ", notes='" + notes + '\'' +
-    '}';
-  }
+  String transactionId;
+  String notes;
 }

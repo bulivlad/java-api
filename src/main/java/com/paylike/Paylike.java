@@ -13,6 +13,7 @@ import java.util.*;
 
 /**
  * Created by jankjr on 17/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
 public class Paylike {
   public static String apiBase = "https://api.paylike.io/";
@@ -48,7 +49,7 @@ public class Paylike {
   }
 
   public static Identity currentApp(String authHeader) throws IOException, PaylikeException {
-    return MinimalistPaylikeClient.call(CurrentAppResponse.class, "GET", path("me"), null, authHeader).identity;
+    return MinimalistPaylikeClient.call(CurrentAppResponse.class, "GET", path("me"), null, authHeader).getIdentity();
   }
 
   public static CreateMerchantResponse createMerchant(String authHeader, MerchantData merchantDefinition) throws IOException, PaylikeException {
@@ -94,19 +95,19 @@ public class Paylike {
   }
 
   public static String createTransactionFromPreviousTransaction(String authHeader, String merchantId, CreateTransactionFromPreviusTransactionData data) throws IOException, PaylikeException {
-    return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("merchants/%s/transactions", merchantId), data, authHeader).transaction.id;
+    return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("merchants/%s/transactions", merchantId), data, authHeader).getTransaction().getId();
   }
 
   public static String createFromSavedCard(String authHeader, String merchantId, String cardId, String currency, String descriptor, int amount, Map custom) throws IOException, PaylikeException {
-    return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("merchants/%s/transactions", merchantId), new CreateTransactionFromSavedCardInput(cardId, currency, descriptor, amount, custom), authHeader).transaction.id;
+    return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("merchants/%s/transactions", merchantId), new CreateTransactionFromSavedCardInput(cardId, currency, descriptor, amount, custom), authHeader).getTransaction().getId();
   }
 
   public static Transaction refundTransaction(String authHeader, String transactionId, RefundData data) throws IOException, PaylikeException {
-    return MinimalistPaylikeClient.call(RefundResponse.class, "POST", path("transactions/%s/refunds", transactionId), data, authHeader).transaction;
+    return MinimalistPaylikeClient.call(RefundResponse.class, "POST", path("transactions/%s/refunds", transactionId), data, authHeader).getTransaction();
   }
 
   public static Transaction voidTransaction(String authHeader, String transactionId, VoidData data) throws IOException, PaylikeException {
-    return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("transactions/%s/voids", transactionId), data, authHeader).transaction;
+    return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("transactions/%s/voids", transactionId), data, authHeader).getTransaction();
   }
 
   public static List<Transaction> fetchAllTransactions(String authHeader, String merchantId, int limit, String before, String after) throws IOException, PaylikeException {
@@ -115,14 +116,14 @@ public class Paylike {
   }
 
   public static Transaction fetchTransaction(String authHeader, String transactionId) throws IOException, PaylikeException {
-    return MinimalistPaylikeClient.call(FetchTransactionResponse.class, "GET", path("transactions/%s", transactionId), null, authHeader).transaction;
+    return MinimalistPaylikeClient.call(FetchTransactionResponse.class, "GET", path("transactions/%s", transactionId), null, authHeader).getTransaction();
   }
 
   public static CardWithId saveCard(String authHeader, String merchantId, String transactionId, String notes) throws IOException, PaylikeException {
-    return MinimalistPaylikeClient.call(SaveCardResponse.class, "POST", path("merchants/%s/cards", merchantId), new SaveCardData(transactionId, notes), authHeader).card;
+    return MinimalistPaylikeClient.call(SaveCardResponse.class, "POST", path("merchants/%s/cards", merchantId), new SaveCardData(transactionId, notes), authHeader).getCard();
   }
 
   public static Transaction captureTransaction(String authHeader, String transactionId, long amount, String currency, String descriptor) throws IOException, PaylikeException {
-    return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("transactions/%s/captures", transactionId), new CaptureTransactionData(amount, currency, descriptor), authHeader).transaction;
+    return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("transactions/%s/captures", transactionId), new CaptureTransactionData(amount, currency, descriptor), authHeader).getTransaction();
   }
 }

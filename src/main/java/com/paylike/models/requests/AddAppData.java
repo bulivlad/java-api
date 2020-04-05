@@ -1,23 +1,18 @@
 package com.paylike.models.requests;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 17/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
 
+@Data
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class AddAppData {
-  public String appId;
-
-  public AddAppData(String appId) {
-    this.appId = appId;
-  }
-
-  public AddAppData() {
-  }
-
-  @Override
-  public String toString() {
-    return "AddAppData{" +
-    "appId='" + appId + '\'' +
-    '}';
-  }
+  String appId;
 }

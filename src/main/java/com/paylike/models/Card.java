@@ -1,21 +1,20 @@
 package com.paylike.models;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 17/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
-public class Card {
-  public String bin;
-  public String last4;
-  public String expiry;
-  public String scheme;
 
-  @Override
-  public String toString() {
-    return "Card{" +
-    "bin='" + bin + '\'' +
-    ", last4='" + last4 + '\'' +
-    ", expiry='" + expiry + '\'' +
-    ", scheme='" + scheme + '\'' +
-    '}';
-  }
+@Data
+@Builder
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class Card {
+  String bin;
+  String last4;
+  String expiry;
+  String scheme;
 }

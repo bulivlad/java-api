@@ -1,32 +1,28 @@
 package com.paylike.models;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 22/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
+
+@Data
+@Builder
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Line {
-  public String id;
-  public String created;
-  public String merchantId;
-  public long balance;
-  public long fee;
-  public String transactionId;
-  public Charge amount;
-  public boolean capture;
-  public boolean test;
-
-
-  @Override
-  public String toString() {
-    return "Line{" +
-    "id='" + id + '\'' +
-    ", created='" + created + '\'' +
-    ", merchantId='" + merchantId + '\'' +
-    ", balance=" + balance +
-    ", fee=" + fee +
-    ", transactionId='" + transactionId + '\'' +
-    ", amount=" + amount +
-    ", capture=" + capture +
-    ", test=" + test +
-    '}';
-  }
+  String id;
+  String created;
+  String merchantId;
+  long balance;
+  long fee;
+  String transactionId;
+  Charge amount;
+  boolean capture;
+  boolean test;
 }

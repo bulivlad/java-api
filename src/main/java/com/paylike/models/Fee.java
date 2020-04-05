@@ -1,17 +1,19 @@
 package com.paylike.models;
 
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 22/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
-public class Fee {
-  public long flat;
-  public long rate;
 
-  @Override
-  public String toString() {
-    return "Fee{" +
-    "rate=" + rate +
-    ", flat=" + flat +
-    '}';
-  }
+@Data
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class Fee {
+  long flat;
+  long rate;
 }

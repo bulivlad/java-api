@@ -1,26 +1,26 @@
 package com.paylike.models;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 22/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
+
+@Data
+@Builder
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class CardWithId {
-  public String id;
-  public String created;
+  String id;
+  String created;
 
-  public String bin;
-  public String last4;
-  public String expiry;
-  public String scheme;
-
-  @Override
-  public String toString() {
-    return "CardWithId{" +
-    "id='" + id + '\'' +
-    ", created='" + created + '\'' +
-    ", bin='" + bin + '\'' +
-    ", last4='" + last4 + '\'' +
-    ", expiry='" + expiry + '\'' +
-    ", scheme='" + scheme + '\'' +
-    '}';
-  }
+  String bin;
+  String last4;
+  String expiry;
+  String scheme;
 }

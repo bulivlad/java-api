@@ -116,7 +116,7 @@ Then just add paylike as a dependency
 
 # Dependencies
 
-This project only depends on Gson to perform the deserialization/serialization between JSON and Java objects.
+This project only depends on Gson to perform the deserialization/serialization between JSON and Java objects and Lombok to remove boilerplate code.
 
 # Licence
 

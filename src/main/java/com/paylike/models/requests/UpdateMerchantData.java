@@ -1,30 +1,19 @@
 package com.paylike.models.requests;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Created by jankjr on 17/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
+
+@Data
+@ToString
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class UpdateMerchantData {
-  public String name;
-  public String email;
-  public String descriptor;
-
-
-  @Override
-  public String toString() {
-    return "UpdateMerchantData{" +
-    "name='" + name + '\'' +
-    ", email='" + email + '\'' +
-    ", descriptor='" + descriptor + '\'' +
-    '}';
-  }
-
-  public UpdateMerchantData(String name, String email, String descriptor) {
-    this.name = name;
-    this.email = email;
-    this.descriptor = descriptor;
-  }
-
-
-
-
+  String name;
+  String email;
+  String descriptor;
 }

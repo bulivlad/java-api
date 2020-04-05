@@ -1,17 +1,19 @@
 package com.paylike.models.responses;
 
 import com.paylike.models.Identity;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
 /**
  * Created by jankjr on 17/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
-public class CurrentAppResponse {
-  public Identity identity;
 
-  @Override
-  public String toString() {
-    return "CurrentAppResponse{" +
-    "identity=" + identity +
-    '}';
-  }
+@Data
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class CurrentAppResponse {
+  Identity identity;
 }

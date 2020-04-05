@@ -1,36 +1,25 @@
 package com.paylike.models.requests;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 import java.util.Map;
 
 /**
  * Created by jankjr on 17/11/2016.
+ * Contributor Vlad Bulimac on 05/04/2020.
  */
+
+@Data
+@Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class CreateTransactionFromPreviusTransactionData {
-  public String transactionId;
-  public String descriptor;
-  public String currency;
-  public long amount;
-  public Map custom;
-
-  public CreateTransactionFromPreviusTransactionData() {
-  }
-
-  public CreateTransactionFromPreviusTransactionData(long amount, String transactionId, String descriptor, String currency, Map custom){
-    this.amount = amount;
-    this.transactionId = transactionId;
-    this.descriptor = descriptor;
-    this.currency = currency;
-    this.custom = custom;
-  }
-
-  @Override
-  public String toString() {
-    return "CreateTransactionFromPreviusTransactionData{" +
-    "transactionId='" + transactionId + '\'' +
-    ", descriptor='" + descriptor + '\'' +
-    ", currency='" + currency + '\'' +
-    ", amount=" + amount +
-    ", custom=" + custom +
-    '}';
-  }
+  String transactionId;
+  String descriptor;
+  String currency;
+  long amount;
+  Map custom;
 }
