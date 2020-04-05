@@ -94,7 +94,7 @@ public class Paylike {
     return jsonArrayToTypedList(Line.class, arr);
   }
 
-  public static String createTransactionFromPreviousTransaction(String authHeader, String merchantId, CreateTransactionFromPreviusTransactionData data) throws IOException, PaylikeException {
+  public static String createTransactionFromPreviousTransaction(String authHeader, String merchantId, CreateTransactionFromPreviousTransactionData data) throws IOException, PaylikeException {
     return MinimalistPaylikeClient.call(TransactionResponse.class, "POST", path("merchants/%s/transactions", merchantId), data, authHeader).getTransaction().getId();
   }
 
